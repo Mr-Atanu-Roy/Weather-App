@@ -9,10 +9,12 @@ API_KEY = "9361f3813cd19596e39e9b6318ccbcbf";
 def home(request):
     payLoad = {
         'message': 'not searched',
+        'given_city': '',
     }
     try:
         if request.method == "GET":
-            city = request.GET['city'];
+            city = request.GET['city']
+            payLoad['given_city'] = city
             
             url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}"
 
@@ -51,7 +53,7 @@ def home(request):
                 #visibility to km
                 payLoad['visibility_km'] = round(payLoad['visibility']/1000, 1)
 
-                print(payLoad)
+                # print(payLoad)
     except:
         pass
     
