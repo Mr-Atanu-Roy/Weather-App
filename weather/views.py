@@ -13,7 +13,7 @@ def home(request):
     }
     try:
         if request.method == "GET":
-            city = request.GET['city']
+            city = request.GET.get('city')
             payLoad['given_city'] = city
             
             url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}"
