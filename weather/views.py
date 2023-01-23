@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect
-
+import os
 import requests
 
 # Create your views here.
 
-API_KEY = "9361f3813cd19596e39e9b6318ccbcbf";
+API_KEY = os.environ.get("API_KEY")
 
 def home(request):
     payLoad = {
